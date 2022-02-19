@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learn Javascript</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .btn-primary.active {
+        background: orange;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Modal Example</h2>
+      <!-- Button to Open the Modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Open modal
+      </button>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Welcome Our Page</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h3>Print Date And Time</h3>
+    <p id="demo"></p>
+    <button type="button" onclick="print_date()" class="m-2 btn btn-primary">
+      Print Date And Time
+    </button>
+    <hr />
+    <h3>Change HTML Content</h3>
+    <p id="content" class="m-2">Name</p>
+    <button
+      type="button"
+      onclick="change_content()"
+      class="m-2 btn btn-primary"
+    >
+      Click Me
+    </button>
+    <hr />
+    <h3>Light ON and OFF</h3>
+    <img src="lightof.gif" id="image" />
+    <button type="button" onclick="light_on()" class="btn btn-primary">
+      Light On
+    </button>
+    <button type="button" onclick="light_of()" class="btn btn-primary">
+      Light Off
+    </button>
+    <hr />
+    <h3>Change Pic With Name</h3>
+    <img src="profile.png" id="pic" height="200" width="200" /><br /><br />
+    <button type="button" onclick="shakeel_pic()" class="btn btn-primary">
+      Shakeel
+    </button>
+    <button type="button" onclick="akhlaq_pic()" class="btn btn-primary">
+      Akhlaq
+    </button>
+    <button type="button" onclick="ashar_pic()" class="btn btn-primary">
+      Ashar
+    </button>
+
+    <button type="button" onclick="waheed_pic()" class="btn btn-primary">
+      Waheed
+    </button>
+    <hr />
+    <p id="object"></p>
+    <select class="m-3" id="select" onchange="onChange()">
+      <option value="">Select Car</option>
+      <option value="Honda City">Honda City</option>
+      <option value="Honda Civic">Honda Civic</option>
+      <option value="Toyota">Toyota</option>
+      <option value="alto">alto</option>
+    </select>
+    <p id="mySelect" class="m-3"></p>
+    <p id="mouseover" onmouseover="mouseover()" onmouseout="mouseout()">
+      ShakeelAhmadBajeeda
+    </p>
+    <p id="text5"></p>
+    <script>
+      // Print Date and Time
+
+      function print_date() {
+        document.getElementById("demo").innerHTML = Date();
+      }
+      // Chamge Html Content
+
+      function change_content() {
+        let content = "Shakeel Ahmad";
+        document.getElementById("content").innerHTML = content;
+        document.getElementById("content").style.fontSize = "30px";
+      }
+
+      // Light ON and OFF
+
+      function light_on() {
+        document.getElementById("image").src = "lighton.gif";
+      }
+
+      function light_of() {
+        document.getElementById("image").src = "lightof.gif";
+      }
+
+      // Change Pic With Name
+
+      function akhlaq_pic() {
+        document.getElementById("pic").src = "akhlaq.jpg";
+      }
+      function ashar_pic() {
+        document.getElementById("pic").src = "ashar.jpg";
+      }
+
+      function shakeel_pic() {
+        document.getElementById("pic").src = "shakeel.jpeg";
+      }
+
+      function waheed_pic() {
+        document.getElementById("pic").src = "waheed.jpg";
+      }
+
+      const car = { name: "Honda City", color: "Black", model: "2022" };
+      document.getElementById("object").innerHTML = "This car is " + car.name;
+
+      function onChange() {
+        let change = document.getElementById("select").value;
+        console.log(change);
+        document.getElementById("mySelect").innerHTML =
+          "You Selected :" + change;
+      }
+      let text = "ShakeelAhmadBajeeda";
+      document.getElementById("text5").innerHTML = "length = " + text.length;
+      function mouseover() {
+        document.getElementById("mouseover").style.fontSize = "50px";
+      }
+      function mouseout() {
+        document.getElementById("mouseover").style.fontSize = "18px";
+      }
+      function muFunction() {
+        document.getElementById("mouseout").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

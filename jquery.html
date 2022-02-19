@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>jQuery Divs</title>
+    <style>
+        .remove_btn {
+            position: absolute;
+            right: 6px;
+            top: 8px;
+        }
+        .update_btn {
+            position: absolute;
+            right: 20px !important;
+            top: 8px;
+        }
+        .jquery-div {
+			height: 320px;
+			width: 800px;
+			margin: auto;
+			background: ;
+			box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+		}
+
+	</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pt-4"> <div class="jquery-div">  <div class="col-12"> <p class="text-center font-weight-bold pt-3">Topper</p> <div class="row"> <div class="col-lg-4 pt-3"> <strong>Student Name</strong> <p id="topper_name"></p></div><div class="col-lg-4 pt-3"> <strong>Father Name</strong> <p id="topper_f_name"></p></div><div class="col-lg-4 pt-3"> <strong>Phone</strong> <p id="topper_phone"></p></div><div class="col-lg-4 pt-3"> <strong>Gender</strong> <p id="topper_gender"></p></div><div class="col-lg-4 pt-3"> <strong>Program</strong> <p id="topper_program"></p></div><div class="col-lg-4 pt-3"> <strong>Marks</strong> <p id="topper_marks"></p></div><div class="col-lg-4 pt-3"> <strong>Grade</strong> <p id="topper_grade"></p></div><div class="col-lg-4 pt-3"> <strong>Status</strong> <p id="topper_status"></p></div><div class="col-lg-4 pt-3"> <strong>Institute</strong> <p id="topper_institute"></p></div></div></div></div></div>
+        <div>
+            
+        </div>
+        <h1 class="text-center pt-3">jQuery Divs</h1>
+        <div class="pt-4">
+            <div class="jquery-div">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-4 pt-3">
+                            <label for="std-name" class="form-label">Student Name</label>
+                            <input type="text" name="" class="form-control" id="std_name" placeholder="Enter Student Name">
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label for="std-name" class="form-label">Father Name</label>
+                            <input type="text" name="" class="form-control" id="f_name" placeholder="Enter Father Name">
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label for="std-name" class="form-label">Phone No</label>
+                            <input type="number" name="" class="form-control" id="contact" placeholder="Enter Phone No">
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label for="std-name" class="form-label" id="gender">Gender</label><br>
+                            <label>
+                                <input type="radio" name="Gender" value="Male">
+                            Male</label>
+                            
+                            
+                            <label class="mx-3"> 
+                                <input type="radio" name="Gender" value="Female">
+                                 Female
+                            </label>
+
+
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label class="form-label">Program</label><br>
+                            <select class="form-select pt-1" id="program" style="width:235px;height: 38px;">
+                                <option selected>select program</option>
+                                <option value="BS-IT">BS-IT</option>
+                                <option value="BS-CS">BS-CS</option>
+                                <option value="BS-SE">BS-SE</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label class="form-label">Marks</label>
+                            <input type="number" name="marks" class="form-control" id="std_marks" placeholder="Enter Marks">
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label class="form-label">Grade</label>
+                            <select class="form-select pt-1" style="width:235px;height: 38px;" id="grade">
+                                <option selected>select grade</option>
+                                <option value="A+">A+</option>
+                                <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="F">F</option>
+                          </select>
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label class="form-label">Status</label><br>
+                            <select class="form-select pt-1" style="width:235px;height: 38px;" id="status">
+                                <option selected>select</option>
+                                <option value="Pass">Pass</option>
+                                <option value="Fail">Fail</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 pt-3">
+                            <label class="form-label">Institute</label>
+                            <input type="text" name="Institute" class="form-control" id="Institute" placeholder="Enter Institute Name">
+                        </div>
+                        
+                    </div>
+                    <button type="button" id="add_new_div" class="btn btn-primary float-right mt-3 m-2">Add +</button>
+                </div>
+            </div>
+        </div>
+        
+     <div id="main_div">
+         
+     </div>
+    </div>
+
+    <script>
+        function remove_div(e){
+            $(e).parents(".pt-4").remove();
+
+        }
+let topper_marks = 0;
+
+  $("#add_new_div").click(function(){
+    let student_name = $('#std_name').val();
+    let father_name = $('#f_name').val();
+    let phone_no = $('#contact').val();
+    var gender = $("input[name='Gender']:checked").val();
+     var program = $('#program').find(":selected").val();
+    let marks = $('#std_marks').val();
+     var grade = $('#grade').find(":selected").val();
+     var status = $('#status').find(":selected").val();
+    let Institute = $('#Institute').val();
+
+
+
+
+    if(student_name != '' && father_name != '' && phone_no != '' && gender != '' && program != '' && marks != '' && grade != '' && status != '' && Institute != '') {
+        if(marks > topper_marks) {
+            topper_marks = marks
+            $('#topper_name').text(student_name);
+            $('#topper_f_name').text(father_name);
+            $('#topper_phone').text(phone_no);
+            $('#topper_gender').text(gender);
+            $('#topper_program').text(program);
+            $('#topper_marks').text(marks);
+            $('#topper_grade').text(grade);
+            $('#topper_status').text(status);
+            $('#topper_institute').text(Institute);
+
+
+            
+
+
+
+        }
+        
+        $("#main_div").append('<div class="pt-4"> <div class="jquery-div"> <div class="col-12"> <div class="row"> <div class="col-lg-4 pt-3"> <strong>Student Name</strong> <p class="student_name">'+ student_name +'</p></div><div class="col-lg-4 pt-3"> <strong>Father Name</strong> <p class="father_name">'+ father_name +'</p></div><div class="col-lg-4 pt-3"> <strong>Phone</strong> <p class="phone_no">'+ phone_no +'</p><span class="btn btn-info update_btn" onclick="edit_data(this);">Edit</span><span class="btn btn-danger remove_btn" onclick="remove_div(this)">x</span></div><div class="col-lg-4 pt-3"> <strong>Gender</strong> <p class="gender">'+ gender +'</p></div><div class="col-lg-4 pt-3"> <strong>Program</strong> <p class="program">'+ program +'</p></div><div class="col-lg-4 pt-3"> <strong>Marks</strong> <p class="marks">'+marks+'</p></div><div class="col-lg-4 pt-3"> <strong>Grade</strong> <p class="grade">'+grade+'</p></div><div class="col-lg-4 pt-3"> <strong>Status</strong> <p class="status">'+status+'</p></div><div class="col-lg-4 pt-3"> <strong>Institute</strong> <p class="Institute">'+Institute+' </p></div></div></div></div></div>');
+    
+    } else {
+        alert('Please fill all the fields')
+    }
+    
+});
+
+  function edit_data(event) {
+    const finder = $(event).closest('.jquery-div');
+    let student_name, father_name, phone_no, gender, program, marks, grade, status, Institute;
+
+    student_name = finder.find('.student_name').text();
+    father_name = finder.find('.father_name').text();
+    phone_no =  finder.find('.phone_no').text();
+    gender = finder.find('.gender').text();
+    program = finder.find('.program').text();
+    marks =  finder.find('.marks').text();
+    grade = finder.find('.grade').text();
+    status = finder.find('.status').text();
+    Institute = finder.find('.Institute').text();
+
+    $('#std_name').val(student_name);
+    $('#f_name').val(father_name);
+    $('#contact').val(phone_no);
+    $("input[name=Gender][value="+gender+"]").prop("checked",true);
+    $('#program option[value='+program+']').prop('selected', true);
+    $('#std_marks').val(marks);
+    $('#grade option[value="'+grade+'"]').prop('selected', true);
+    $('#status option[value='+status+']').prop('selected', true);
+    $('#Institute').val(Institute);
+    console.log(grade, status, Institute);
+  }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">My JavaScript</h1>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">click me to check date and time</button>
+    <p id="demo"></p>
+     <form>
+        <input type="number" name="" placeholder="Number to print a table!" class="mx-2" id="any_num">
+        <input type="number" name="" placeholder="Enter starting number!" id="start_num">
+        <input type="number" name="" placeholder="Enter ending number!" id="end_num">
+        <button type="button" onclick="print_table()">Print table</button>
+    </form>
+    <div id="table_write"></div>
+    <div id="table_div"  class="mx-2"></div><br>
+    <div id="table2_div"  class="mx-2"></div><br>
+    <script>
+        var toastMixin = Swal.mixin({
+        toast: true,
+        icon: 'success',
+        title: 'General Title',
+        animation: false,
+        position: 'top-right',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    }); 
+
+       document.write('<h3>Name: Shakeel Ahmad</h3><br>')
+    document.write('Father Name:Bajeeda<br>')
+    function print_table() {
+        var table_number = parseInt(document.getElementById('any_num').value);
+    var start_number = parseInt(document.getElementById('start_num').value);
+    var end_number = parseInt(document.getElementById('end_num').value);
+    if (!table_number) {
+                toastMixin.fire({
+                title: 'Number is required',
+                icon: 'error'
+              });
+                return false;
+            }
+             if (!start_number) {
+                toastMixin.fire({
+                title: 'Starting number is required',
+                icon: 'error'
+              });
+                return false
+            }
+            if (!end_number) {
+                toastMixin.fire({
+                title: 'End number is required',
+                icon: 'error'
+              });
+                return false
+            }
+           
+            console.log(start_number, end_number, table_number);
+            let table = '';
+            for (var i = start_number; i <=  end_number; i++) {
+                table += i + ' * ' + table_number + ' = ' + i*table_number + '<br>';
+                console.log(i)
+            }
+            document.getElementById('table_div').innerHTML= table;
+            // table 2 start here
+            let table2 = '';
+            for (var i = end_number; i >=  start_number; i--) {
+                table2 += i + ' * ' + table_number + ' = ' + i*table_number + '<br>';
+                console.log(i)
+            }
+            document.getElementById('table2_div').innerHTML= table2;
+            // table 2 ends here
+            let message = 'Table of ' + table_number + ' from ' + start_number + ' to '  + end_number + ' has been printed successfully';
+            document.getElementById('table_write').innerHTML = message;
+            console.log('function is running');
+
+                toastMixin.fire({
+                animation: true,
+                title: message
+              });
+            
+    }
+    
+       var text = $('p').innerHTML;
+       document.write(text)
+    </script>
+</body>
+
+</html>

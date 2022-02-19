@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <title>Print-starick</title>
+</head>
+
+<body style="margin-left: 20px;margin-top: 10px ;">
+	<script>
+var num, temp;
+function fun()
+{
+  num = parseInt(document.getElementById("num").value);
+  if(num)
+  {
+    temp = document.getElementById("resPara");
+    temp.style.display = "block";
+    if(num%2==0)
+      document.getElementById("res").innerHTML = "Even";
+    else
+      document.getElementById("res").innerHTML = "Odd";
+  }
+}
+</script>
+</head>
+
+
+<p>Enter the Number: <input id="num"><button onclick="fun()">Check</button></p>
+<p id="resPara" style="display:none;">It is an <span id="res"></span> Number</p>
+
+    <script>
+    var i, j;
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= i; j++) {
+            document.write('* ');
+        }
+        document.write('<br/>');
+    }
+    </script><br><br>
+    <script>
+    var a, b;
+    for (a = 5; a >= 1; a--) {
+        for (b = 1; b <= a; b++) {
+            document.write('* ');
+        }
+        document.write('<br/>');
+    }
+    </script>
+</body>
+
+</html>

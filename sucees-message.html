@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.w3schools.com/js/myScript.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <title></title>
+    <style>
+        body {
+  margin: 20px auto;
+  font-family: 'Lato';
+  font-weight: 300;
+  width: 600px;
+ 
+}
+
+button {
+  background: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Lato';
+  margin: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background: orange;
+}
+    </style>
+</head>
+
+<body>
+    <form action="" onsubmit="return validate_form();">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" id="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password">
+        </div>
+        <div class="checkbox">
+            <label><input id="chkbox" type="checkbox" id="theform"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+    </div>
+    
+    <script>
+    var toastMixin = Swal.mixin({
+        toast: true,
+        icon: 'success',
+        title: 'General Title',
+        animation: false,
+        position: 'top-right',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    }); 
+
+    function validate_form() {
+
+            let email = document.getElementById('email').value;
+            console.log('Email = ' + email)
+            let password = document.getElementById('password').value;
+            console.log('Password = ' + password)
+            if (email == '') {
+                toastMixin.fire({
+                title: 'Email is required',
+                icon: 'error'
+              });
+                return false;
+            }
+             if (password == '') {
+                toastMixin.fire({
+                title: 'Password is required',
+                icon: 'error'
+              });
+                return false
+            }
+            let chkbox = document.getElementById('chkbox');
+            if (chkbox.checked == false) 
+    {
+        toastMixin.fire({
+                title: 'Please check the aggriment',
+                icon: 'error'
+              });
+        return false;
+    }
+            if(email !='' && password !='' && checkEmail(email) && validate_password(password)) {
+                toastMixin.fire({
+                animation: true,
+                title: 'Form Validated Successfully'
+              });
+             return false;
+            } else {
+             return false;
+            }
+        }
+
+        function checkEmail(email) {
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(email)) {
+            toastMixin.fire({
+                title: 'Please enter a valid email address',
+                icon: 'error'
+              });
+            return false;
+         } else {
+            return true
+         }
+        }
+        function validate_password(password){
+            if (password.length >= 6 && password.length  <= 12) {
+                return true;
+            }
+            else{
+                    toastMixin.fire({
+                title: 'paasword must be between  6 to 12 characters',
+                icon: 'error'
+              });
+                    return false;
+
+            }
+            
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
